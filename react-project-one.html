@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="Ru-ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Project-react-one</title>
+	<script src="https://unpkg.com/react@16/umd/react.
+development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.
+development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/
+babel.min.js"></script>
+	<link rel="stylesheet" href="react-project-one.css">
+	<style>
+		#container{
+			padding: 50px;
+			background-color: #fff;
+		}
+		
+	</style>
+</head>
+<body>
+
+
+	<div id="container"></div>
+	<script type="text/babel">
+		/*class Stuff extends React.Component {
+			render () {
+				return (
+					[
+						<p key="1">
+					i
+						</p>,
+						<p key="2">
+					return
+						</p>,
+						<p key="3">
+					list
+						</p>
+						]
+				);
+			}
+		}
+		<React.Fragment>
+		<p>i</p>
+		<p>return</p>
+		<p>list</p>
+		</React.Fragment >
+				);
+			}
+		}
+		ReactDOM.render(
+			<div>
+			<Stuff/>
+			</div>,
+			document.querySelector("#container")
+		);*/
+
+		/*class Letter extends React.Component {
+			render () {
+				let letterStyle = {
+					padding: 10,
+					margin: 10,
+					backgroundColor: this.props.bgcolor,
+					color:"#333",
+					display: "inline-block",
+					finctFamily: "monospace",
+					textAlign: "center"
+				};
+				return (
+					<div style = {letterStyle}>
+					{this.props.children}
+					</div>
+				);
+			}
+		}*/
+
+
+		/*ReactDOM.render (
+			<div>
+			<section>
+			<p>
+			sometimes..bundleRenderer.renderToStream
+			</p>
+			</section>
+			</div>,
+			document.querySelector("#container")
+		);*/
+
+
+		/*let swatchComponent = <Swatch color = "#2f004F"></Swatch>;
+		ReactDOM.render (
+			<div>
+			{swatchComponent}
+			</div>,
+			document.querySelector("#container")
+		);*/
+
+	/*
+	class LightningCounter extends React.Component {
+		constructor(props) {//create constructor for 
+			super(props);//count
+			this.state = {//we tell to react
+				strikes: 0//create obj
+			};
+			this.timerTick = this.timerTick.bind(this);
+			//keeping timerTick this
+		}
+
+		timerTick () {//function timer
+			this.setState ({//call setstate method
+				strikes: this.state.strikes + 100//every 1sec 
+			});//strikes grow on 100
+		}
+
+		componentDidMount () {
+			setInterval(this.timerTick, 1000);
+		}//begin timer with function setinterval
+		render () {
+			return (
+				<h1>{this.state.strikes}</h1>//visualisation 
+			);//mean strikes
+		}
+	}
+
+	class LightningCounterDisplay extends React.Component {
+		render () {
+			let divStyle = {
+				width: 350,
+				textAlign: "center",
+				backgroundColor: "black",
+				padding:50,
+				fontFamily: "sans-serif",
+				color: "#999",
+				borderRadius: 10,
+			};
+			return (
+				<div style = {divStyle}>
+					<LightningCounter/>
+					</div>
+			);
+		}
+	}*/
+
+
+
+	class LightningCounter extends React.Component {
+		constructor (props) {
+			super (props);
+
+			this.state = {
+				strikes: 0
+			};
+
+			this.timerTick = this.timerTick.bind(this);
+		}
+		timerTick () {
+			this.setState ({
+				strikes: this.state.strikes + 100
+			});
+		}
+		componentDidMount () {
+			setInterval(this.timerTick, 1000);
+		}
+
+		render () {
+			let counterStyle = {
+				color: "#66FFFF",
+				fontSize: 60
+			};
+
+			let count = this.state.strikes.toLocaleString ();
+
+			return (
+				<h1 style = {counterStyle}> {count}</h1>
+			);
+		}
+	}
+
+
+	class LightningCounterDisplay extends React.Component {
+		render () {
+			let commonStyle = {
+				margin: 0,
+				padding: 0,
+			};
+
+			let divStyle = {
+				width: 350,
+				textAlign: "center",
+				backgroundColor: "#020202",
+				padding: 50,
+				fontFamily: "sans-serif",
+				color: "#999999",
+				borderRadius: 30
+			};
+
+
+			let textStyles = {
+				emphasis: {
+					fontSize: 40,
+					...commonStyle
+				},
+
+				smallEmphasis: {
+					...commonStyle
+				},
+
+				small: {
+					fontSize: 18,
+					opacity: 0.6,
+					...commonStyle
+				}
+			};
+
+			return (
+				<div style = {divStyle}>
+					<LightningCounter/>
+					<h2 style = {textStyles.smallEmphasis}>
+						Barsts
+					</h2>
+					<h2 style = {textStyles.emphasis}>
+						on planet
+					</h2>
+					<p style = {textStyles.small}> 
+						(from moment begin code)
+					</p>
+					</div>
+
+			);
+		}
+	}
+
+
+	ReactDOM.render (
+		<LightningCounterDisplay/>,
+		document.querySelector("#container")
+	);
+
+
+	</script>
+
+</body>
+</html>
